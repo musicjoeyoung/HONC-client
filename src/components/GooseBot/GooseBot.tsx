@@ -60,7 +60,7 @@ const GooseBot = () => {
                 <input
                     className="chat__input-field"
                     type="text"
-                    placeholder="Ask the Goose Bot something"
+                    placeholder="Ask the Goose Bot!"
                     value={userMessage}
                     onChange={handleMessageChange}
                 />

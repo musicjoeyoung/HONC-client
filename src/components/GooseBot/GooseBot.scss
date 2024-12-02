@@ -1,0 +1,98 @@
+// GooseBot.scss
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 500px;
+    overflow-y: auto;
+
+    &__header {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    &__messages {
+        width: 100%;
+        flex-grow: 1;
+        padding: 10px;
+        margin-bottom: 20px;
+        overflow-y: auto;
+    }
+
+    &__message {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+
+        &--user {
+            justify-content: flex-end;
+            color: #333;
+            background-color: #e4f0f4;
+            padding: 10px;
+            border-radius: 15px;
+            max-width: 70%;
+            margin-left: auto;
+        }
+
+        &--bot {
+            justify-content: flex-start;
+            color: #fff;
+            background-color: #2b8b8f;
+            padding: 10px;
+            border-radius: 15px;
+            max-width: 70%;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__input {
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &__input-field {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        font-size: 1rem;
+        outline: none;
+        margin-right: 10px;
+    }
+
+    &__input-button {
+        background-color: #2b8b8f;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1rem;
+
+        &:hover {
+            background-color: #1a5f5e;
+        }
+    }
+}

@@ -1,0 +1,5 @@
+@use "../../styles/partials/index" as *;
+
+.goose-facts {
+    @include section;
+}

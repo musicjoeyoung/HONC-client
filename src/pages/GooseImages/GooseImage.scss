@@ -1,0 +1,46 @@
+@use "../../styles/partials/index" as *;
+
+.goose-images {
+    @include section;
+
+    &__goose {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.2rem 0;
+
+        &:hover {
+            background-color: #e8e546;
+        }
+    }
+
+    &__ul {
+        list-style-type: none;
+        border: 1px solid black;
+        border-radius: 7px;
+        text-align: left;
+        width: 50%;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    &__li {
+        cursor: pointer;
+        text-decoration: underline;
+        color: blue;
+
+        &.active {
+            color: red;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 30rem;
+        border-radius: 7px;
+    }
+
+    &__delete {
+        width: 7%;
+    }
+}

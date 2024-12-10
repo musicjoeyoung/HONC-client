@@ -28,7 +28,7 @@ function GooseFacts() {
     }, [])
 
     return (
-        <div>
+        <div className="goose-facts">
             <h1>Geese Trivia</h1>
 
             <button onClick={displayRandomFact}>Show Random Fact</button>

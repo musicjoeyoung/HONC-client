@@ -3,5 +3,9 @@
 @include goose-3d;
 
 .spinning-goose-container {
-    margin-top: 1rem;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    padding: 1rem;
 }

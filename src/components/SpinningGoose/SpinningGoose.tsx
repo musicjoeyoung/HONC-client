@@ -19,13 +19,9 @@ const Model = () => {
 
 const SpinningGoose = () => {
     return (
-        <div className='spinning-goose-container' style={{
-            width: '800px',
-            height: '800px',
-            margin: 'auto'
-        }}>
+        <div className='spinning-goose-container'>
             <Canvas camera={{
-                position: [0, 3, 20],
+                position: [0, 3, 15],
                 fov: 40,
                 near: 0.1,
                 far: 2000

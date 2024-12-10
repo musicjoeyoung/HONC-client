@@ -1,0 +1,19 @@
+@use "../../styles/partials/index" as *;
+
+.footer {
+    width: 100%;
+    background-color: #1a1a1a;
+    color: whitesmoke;
+    padding: 2rem 0;
+    margin-top: auto;
+    left: 0;
+    bottom: 0;
+
+    &__link {
+        color: gold;
+    }
+}
+
+p {
+    margin-block: 0;
+}

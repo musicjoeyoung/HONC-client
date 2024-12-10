@@ -2,6 +2,7 @@ import "./App.scss"
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
+import Footer from "./components/Footer/Footer"
 import GooseBot from "./pages/GooseBot/GooseBot"
 import GooseFacts from "./pages/GooseFacts/GooseFacts"
 import GooseImages from "./pages/GooseImages/GooseImages"
@@ -11,13 +12,20 @@ import Navbar from "./components/Navbar/Navbar"
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/goose-bot" element={<GooseBot />} />
-        <Route path="/goose-facts" element={<GooseFacts />} />
-        <Route path="/goose-images" element={<GooseImages />} />
-      </Routes>
+      <div className="app-container">
+        <div className="content">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/goose-bot" element={<GooseBot />} />
+              <Route path="/goose-facts" element={<GooseFacts />} />
+              <Route path="/goose-images" element={<GooseImages />} />
+            </Routes>
+          </main>
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   )
 }

@@ -1,3 +1,43 @@
 @mixin section {
-    margin: 5rem 0 0 0;
+    margin-top: 5rem;
+}
+
+@mixin goose-3d {
+    .goose {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        perspective: 1000px;
+        margin: 50px auto;
+
+        &__body {
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            background: gray;
+            border-radius: 50% 60% 50% 40%;
+            transform-style: preserve-3d;
+        }
+
+        &__head {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: gray;
+            border-radius: 50% 60% 50% 40%;
+            top: -15px;
+            left: 70px;
+            transform: rotate(20deg);
+        }
+
+        &__beak {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background: orange;
+            top: -5px;
+            left: 100px;
+            border-radius: 40% 60% 40% 60%;
+        }
+    }
 }

@@ -4,6 +4,7 @@ const Footer = () => {
         <footer className="footer">
             <p>© Spooking Honc - 2024 Joseph Young</p>
             <a className="footer__link" href="https://honc.dev/honcathon">Honcathon</a>
+            <p className="footer__attribution">Goose Low Poly 3D Model | Created by Atlasmodels | Available at <a href="https://sketchfab.com/">Sketchfab </a> | Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a></p>
         </footer>
     )
 }

@@ -1,3 +1,7 @@
 @use "../../styles/partials/index" as *;
 
 @include goose-3d;
+
+.spinning-goose-container {
+    margin-top: 1rem;
+}

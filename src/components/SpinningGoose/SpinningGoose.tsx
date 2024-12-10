@@ -1,3 +1,5 @@
+import "./SpinningGoose.scss"
+
 import { Canvas, useLoader } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 

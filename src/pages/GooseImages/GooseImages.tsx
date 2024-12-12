@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import trashIcon from "../../assets/icons/recycle-bin.png"
 
+const URL = import.meta.env.VITE_API_URL;
+
 const GooseImages = () => {
     const [gooseImage, setGooseImage] = useState<string | null>(null);
     const [geeseList, setGeeseList] = useState<{ id: number, name: string }[]>([]);
@@ -14,7 +16,7 @@ const GooseImages = () => {
 
     const getGeeseList = async () => {
         try {
-            const response = await axios.get("http://localhost:8787/api/geese");
+            const response = await axios.get(`${URL}/geese`);
             if (response.data && Array.isArray(response.data.geese)) {
                 setGeeseList(response.data.geese);
                 if (response.data.geese.length > 0) {
@@ -29,7 +31,7 @@ const GooseImages = () => {
     const createGoose = async (name: string) => {
         setIsCreatingGoose(true);
         try {
-            const response = await axios.post(`http://localhost:8787/api/geese/${name}`);
+            const response = await axios.post(`${URL}/geese/${name}`);
             console.log('Created new goose:', response.data);
             await getGeeseList();
             await fetchGooseImage(name);
@@ -40,19 +42,45 @@ const GooseImages = () => {
         }
     };
 
+    //this previously worked, but now doesn't. I'm not sure why.
+    /*     const fetchGooseImage = async (gooseName: string) => {
+            setIsLoading(true);
+            try {
+                const encodedGooseName = encodeURIComponent(gooseName);
+                const response = await axios.get(`${URL}/geese/${encodedGooseName}`, {
+                    responseType: 'arraybuffer'
+                });
+    
+                const blob = new Blob([response.data], { type: 'image/jpeg' });
+                const imageUrl = URL.createObjectURL(blob);
+                setGooseImage(imageUrl);
+            } catch (error) {
+                console.error('Error fetching goose image:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        }; */
+
     const fetchGooseImage = async (gooseName: string) => {
         setIsLoading(true);
         try {
             const encodedGooseName = encodeURIComponent(gooseName);
-            const response = await axios.get(`http://localhost:8787/api/geese/${encodedGooseName}`, {
+            const response = await axios.get(`${URL}/geese/${encodedGooseName}`, {
                 responseType: 'arraybuffer'
             });
 
-            const blob = new Blob([response.data], { type: 'image/jpeg' });
-            const imageUrl = URL.createObjectURL(blob);
+            const blob = new Blob([response.data], { type: 'image/png' });
+            const imageUrl = window.URL.createObjectURL(blob);
+
             setGooseImage(imageUrl);
+
+            //cleanup to revoke object URL
+            return () => {
+                window.URL.revokeObjectURL(imageUrl);
+            };
         } catch (error) {
             console.error('Error fetching goose image:', error);
+            setGooseImage(null);
         } finally {
             setIsLoading(false);
         }
@@ -60,7 +88,7 @@ const GooseImages = () => {
 
     const deleteGoose = async (gooseName: string) => {
         try {
-            await axios.delete(`http://localhost:8787/api/geese/${gooseName}`);
+            await axios.delete(`${URL}/geese/${gooseName}`);
             await getGeeseList();
         } catch (error) {
             console.error('Error deleting goose:', error);

@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react"
 
 import axios from "axios"
 
+const URL = import.meta.env.VITE_API_URL;
+
+
 const GooseBot = () => {
     const [userMessage, setUserMessage] = useState<string>("")
     const [messages, setMessages] = useState<{ text: string; from: "user" | "bot" }[]>([])
@@ -21,7 +24,7 @@ const GooseBot = () => {
         setMessages((prevMessages) => [...prevMessages, userMessageObj])
 
         try {
-            const res = await axios.post("http://localhost:8787/api/chat", {
+            const res = await axios.post(`${URL}/chat`, {
                 message: userMessage,
             })
 

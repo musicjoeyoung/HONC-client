@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 
 import axios from 'axios'
 
+const URL = import.meta.env.VITE_API_URL;
+
 function GooseFacts() {
     const [geese, setGeese] = useState([])
     const [randomFact, setRandomFact] = useState<any>(null)
@@ -15,7 +17,7 @@ function GooseFacts() {
 
     const getData = async () => {
         try {
-            const response = await axios.get("http://localhost:8787/api/geese-trivia")
+            const response = await axios.get(`${URL}/geese-trivia`)
             //console.log(response.data.geeseTrivia)
             setGeese(response.data.geeseTrivia)
         } catch (error) {

@@ -3,7 +3,8 @@ import "./SpinningGoose.scss"
 import { Canvas, useLoader } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader' //this still works?
+import { FBXLoader } from 'three-stdlib';
+//import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader' //this still works?
 import { Suspense } from 'react'
 
 const Model = () => {

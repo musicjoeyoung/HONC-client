@@ -13,6 +13,8 @@ const GooseImages = () => {
     const [newGooseName, setNewGooseName] = useState<string>('');
     const [isLoading, setIsLoading] = useState(false);
     const [isCreatingGoose, setIsCreatingGoose] = useState(false);
+    const [latestGoose, setLatestGoose] = useState<string | null>(null);
+
 
     const getGeeseList = async () => {
         try {
@@ -33,6 +35,7 @@ const GooseImages = () => {
         try {
             const response = await axios.post(`${URL}/geese/${name}`);
             console.log('Created new goose:', response.data);
+            setLatestGoose(name);
             await getGeeseList();
             await fetchGooseImage(name);
         } catch (error) {
@@ -98,6 +101,13 @@ const GooseImages = () => {
     useEffect(() => {
         getGeeseList();
     }, []);
+
+    useEffect(() => {
+        if (latestGoose) {
+            fetchGooseImage(latestGoose);
+            setLatestGoose(null);
+        }
+    }, [geeseList]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
